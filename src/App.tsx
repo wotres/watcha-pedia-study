@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from '@emotion/styled';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import MainPage from './pages/MainPage';
+// import MovieDetail from './pages/MovieDetail';
+// import TvPage from './pages/TvPage';
+// import TvDetail from './pages/TvDetail';
+
+import LoginModal from './features/app/LoginModal';
+import SignupModal from './features/app/SignupModal';
+
+const Base = styled.div``;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Base>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          {/*<Route path="/tv" element={<TvPage />} />*/}
+          {/*<Route path="/movie/:id" element={<MovieDetail />} />*/}
+          {/*<Route path="/tv/:id" element={<TvDetail />} />*/}
+        </Routes>
+      </BrowserRouter>
+      <LoginModal />
+      <SignupModal />
+    </Base>
   );
 }
 
