@@ -43,6 +43,8 @@ interface Language {
   name: string;
 }
 
+// interface 는 상호간에 정의한 약속 혹은 규칙
+// 여기서는 타입과 객체의 속성까지 정의
 export interface MovieDetail extends Movie {
   belongs_to_collection: Collection;
   budget: number;
