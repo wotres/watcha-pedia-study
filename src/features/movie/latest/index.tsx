@@ -18,7 +18,6 @@ const Title = styled.h4`
 const LatestMovieSection: React.FC = () => {
   // loading 여부 표시
   const { data: latestMovieResponse, isLoading } = useLatestMovie();
-
   const getYear = (release_date: string) => release_date.split('-')[0] || '';
 
   return (
