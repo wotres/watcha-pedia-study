@@ -1,6 +1,26 @@
 # watcha-pedia-study
 ## summary
-* react
+* .env 에서 REACT_APP_ 으로 변수 설정  
+* menifest.json
+  * 웹 앱의 정보를 JSON 파일로 제공
+  * 웹 앱의 다운로드를 네이티브 앱과 유사한 형태로 제공할 수 있게 도와줌
+* robots.txt
+  * 웹사이트 크롤러가 엑세스 하거나 정보 수집을 해도 되는 페이지를 알려줌
+* setupTests.ts
+  * 각 테스트 파일에서 사용될 모듈을 import
+  * Jest config 파일에서 사용
+  * import 반복 줄임
+* reportWebVitals
+  * index.tsx 에서 호출시 reportWebVitals(console.log) 를 넣으면 앱의 퍼포먼스 시간들을 분석
+* react-app-env.d.ts
+  * /// <reference types="react-scripts" /> 
+    * import 와 비슷한 선언
+    * node_modules 의 react-scripts 를 불러와서 사용
+    
+* index.tsx
+  * <React.StrictMode> 는 애플리케이션 내 잠재적인 문제를 알아내기 위한 도구
+    * 개발중에만 적용
+    * 사용되지않는 메서드 또는 잠재적인 위험을 식별하여 경고 => 두번 렌더링
 
 ## code
 ### css
@@ -38,7 +58,7 @@ div {
   margin: 0 auto;
   /* 그림자 색상 / 위치 */
   /* rgba 와 동일 */
-  box-shadow: rgb(0 0 0 / 8%) 0px 1px 0px 0px;
+  box-shadow: rgb(0 0 0 / 8%) 0 1px 0 0;
   /* property name | duration | easing function | delay */
   transition: background-color 200ms ease 0s;
   /* <ul> or <ol> 하위에 숫자 또는 기호 표시 안되게 */
