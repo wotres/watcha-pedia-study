@@ -19,7 +19,7 @@ const Title = styled.h4`
 const PopularMovieSection: React.FC = () => {
   const { data: popularMovieResponse, isLoading } = usePopularMovie();
 
-  const getYear = (release_date: string) => release_date.split('-')[0] || '';
+  const getYear = (release_date: string) => release_date?.split('-')[0] || '';
 
   return (
     <Base>
