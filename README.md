@@ -1,4 +1,5 @@
 # watcha-pedia-study
+* react typescript
 ## summary
 * .env 에서 REACT_APP_ 으로 변수 설정  
 * menifest.json
@@ -22,6 +23,7 @@
     * 개발중에만 적용
     * 사용되지않는 메서드 또는 잠재적인 위험을 식별하여 경고 => 두번 렌더링
 
+
 ## code
 ### css
 ```javascript
@@ -30,27 +32,38 @@
 const MenuButton = styled.button<{ active?: boolean }>`
     color: ${({ active }) => active ? 'rgb(53, 53, 53)' : 'rgb(126, 126, 126)'};
 `;
-
+```
 // useRef 라는 Hook 함수를 통해 특정 Dom 선택
 useRef
 
-// Recoil: 상태 관리 툴
+### Recoil
+* 상태 관리 툴
 useRecoilState(loginModalOpenState)
 
-// atom은 redux의 store와 같은 개념
-// atom의 값이 바뀌면 구독하고있는 장소는 모두 새로운 값으로 리렌더링
+* Atom은 redux의 store와 같은 개념
+* Atom이 업데이트되면 해당 Atom을 구독하고 있던 모든 컴포넌트가 업데이트된 Atom값을 참조하여 리렌더링
 import { atom } from 'recoil';
 
-// react-transition-group: 
-// => 리액트에서 컴포넌트가 DOM에 마운팅되고 언마운팅되는 상황에 애니메이션을 적용할 수 있도록 도와줌
-<CSSTransition in={isOpen} timeout={300} classNames="modal" unmountOnExit>
+### CSSTransition
+* react-transition-group: 
+* => 리액트에서 컴포넌트가 DOM에 마운팅되고 언마운팅되는 상황에 애니메이션을 적용할 수 있도록 도와줌
+* <CSSTransition in={isOpen} timeout={300} classNames="modal" unmountOnExit>
+* in: 발동조건
+* timeout:자동 적용 시점
+* classNames : 애니메이션을 위한 접두어
+* unmountOnExit: 상태가 exited 일때 돔에서 엘리먼트를 언마운트
 
-// react-query
-// => 서버의 값을 클라이언트에 가져오거나, 캐싱, 값 업데이트, 에러핸들링 등 비동기 과정을 더욱 편하게 하는데 사용
-// => 서버/클라이언트 데이터 분리
+### react-query
+* 서버의 값을 클라이언트에 가져오거나, 캐싱, 값 업데이트, 에러핸들링 등 비동기를 쉽게 다루게 해주는 라이브러리
+* 사용을 위해 사용하고자 하는 컴포넌트를 QueryClientProvider 컴포넌트로 감싸줌
+* QueryClient 값을 Props 로 넣어줌  
+* 데이터 패칭을 할때는 useQuery hooks를 사용 
+  * 첫번째 인자에는 문자열 혹은 배열값인 queryKey 값
+  * 두번째 인자에는 데이터를 패칭할 함수 값(Promise 를 리턴하는 함수를 지정)
+```tsx
 useQuery<AxiosResponse<MovieDetail>, AxiosError>('latestMovie', latestApi);
-
 ```
+
 
 ```css
 div {
